@@ -19,4 +19,12 @@ class Rental {
     public int getPriceCode() {
         return _movie.getPriceCode();
     }
+    public double getCharge(){
+        return _movie.getCharge(_daysRented);
+    }
+
+    public int getFrequentRenterPoints() {
+
+        return _movie.getFrequentRenterPoints(_daysRented);
+    }
 }

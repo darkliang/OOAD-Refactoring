@@ -1,7 +1,8 @@
+import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Customer C1;
         Customer C2;
         Customer C3;
@@ -27,31 +28,33 @@ public class Main {
 
         M3_Title = "Wreck-it Ralph";
         M3_PriceCode = Movie.CHILDRENS;
-
-        Date start = new Date(2013, 7, 1);
-        Date end1 = new Date(2013, 7, 6);
-        Date end2 = new Date(2013, 7, 4);
-        Date end3 = new Date(2013, 7, 5);
-        C1.addRental(new Rental(null, new DateRange(start, end1)));
-        C1.addRental(new Rental(null, new DateRange(start, end2)));
-        C1.addRental(new Rental(null, new DateRange(start, end3)));
-        System.out.println(C1.statement()); 
+        Movie M1 = new Movie(M1_Title, M1_PriceCode);
+        Movie M2 = new Movie(M2_Title, M2_PriceCode);
+        Movie M3 = new Movie(M3_Title, M3_PriceCode);
+        Date start = new Date(2013, Calendar.AUGUST, 1);
+        Date end1 = new Date(2013, Calendar.AUGUST, 6);
+        Date end2 = new Date(2013, Calendar.AUGUST, 4);
+        Date end3 = new Date(2013, Calendar.AUGUST, 5);
+        C1.addRental(new Rental(M1, new DateRange(start, end1)));
+        C1.addRental(new Rental(M2, new DateRange(start, end2)));
+        C1.addRental(new Rental(M3, new DateRange(start, end3)));
+        System.out.println(C1.statement());
         System.out.println();
 
-        start = new Date(2013, 7, 11);
-        end1 = new Date(2013, 7, 12);
-        end2 = new Date(2013, 7, 19);
-        C2.addRental(new Rental(null, new DateRange(start, end1)));
-        C2.addRental(new Rental(null, new DateRange(start, end2)));
-        System.out.println(C2.statement()); 
+        start = new Date(2013, Calendar.AUGUST, 11);
+        end1 = new Date(2013, Calendar.AUGUST, 12);
+        end2 = new Date(2013, Calendar.AUGUST, 19);
+        C2.addRental(new Rental(M1, new DateRange(start, end1)));
+        C2.addRental(new Rental(M2, new DateRange(start, end2)));
+        System.out.println(C2.statement());
         System.out.println();
 
         start = new Date(2013, 6, 1);
         end1 = new Date(2013, 6, 3);
         end2 = new Date(2013, 6, 2);
-        C3.addRental(new Rental(null, new DateRange(start, end1)));
-        C3.addRental(new Rental(null, new DateRange(start, end2)));
-        System.out.println(C3.statement()); 
+        C3.addRental(new Rental(M2, new DateRange(start, end1)));
+        C3.addRental(new Rental(M3, new DateRange(start, end2)));
+        System.out.println(C3.statement());
         System.out.println();
     }
 }
